@@ -1,0 +1,28 @@
+version: '2'
+
+services:
+
+    rancher-traefik-sync:
+        scale: 1
+        start_on_create: true
+
+catalog:
+    name: rancher-traefik-sync
+    version: 1.0.0
+    description: Sync certificates from Traefik to the certificate storage in Rancher.
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: RANCHER_URL
+          label: "Rancher Url"
+          require: true
+          type: "string"
+        
+        - variable: RANCHER_USERNAME
+          label: "Username"
+          require: true
+          type: "string"
+
+        - variable: RANCHER_PASSWORD
+          label: "Password"
+          required: true
+          type: "password"
