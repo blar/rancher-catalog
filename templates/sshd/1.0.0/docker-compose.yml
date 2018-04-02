@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+    sshd:
+        image: foobox/sshd:latest
+        environment:
+            SSHD_AUTHORIZED_KEYS: $SSHD_AUTHORIZED_KEYS
+        volumes:
+            - sshd-authorized-keys:/etc/authorized_keys
+        labels:
+            io.rancher.container.pull_image: always
+       
+volumes:
+    sshd-authorized-keys:

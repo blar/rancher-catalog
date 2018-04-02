@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+    sshd:
+        scale: 1
+        start_on_create: true
+
+catalog:
+    name: sshd
+    version: 1.0.0
+    description: sshd
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: SSHD_AUTHORIZED_KEYS
+          label: "Authorized keys"
+          require: false
+          type: "multiline"
