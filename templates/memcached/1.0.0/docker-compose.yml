@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    memcached:
+        image: foobox/memcached:1.5
+        environment:
+            MEMCACHED_MEMORY_LIMIT: $MEMCACHED_MEMORY_LIMIT
+        labels:
+            io.rancher.container.pull_image: always
