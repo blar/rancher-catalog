@@ -3,7 +3,7 @@ version: '2'
 services:
 
     web:
-        image: foobox/wordpress:web
+        image: foobox/wordpress:latest-web
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -14,7 +14,7 @@ services:
             io.rancher.container.pull_image: always
 
     cron:
-        image: foobox/wordpress:cli
+        image: foobox/wordpress:latest-cli
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
