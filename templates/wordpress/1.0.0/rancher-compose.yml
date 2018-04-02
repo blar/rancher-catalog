@@ -44,3 +44,20 @@ catalog:
           require: true
           type: "password"
 
+        - variable: WORDPRESS_FILE_EDIT_ENABLE
+          label: "WORDPRESS_FILE_EDIT_ENABLE"
+          require: true
+          default: false
+          type: "boolean"
+
+        - variable: WORDPRESS_FILE_MODS_ENABLE
+          label: "WORDPRESS_FILE_MODS_ENABLE"
+          require: true
+          default: false
+          type: "boolean"
+
+        - variable: WORDPRESS_CRON_ENABLE
+          label: "WORDPRESS_CRON_ENABLE"
+          require: true
+          default: false
+          type: "boolean"

@@ -5,6 +5,9 @@ services:
     web:
         image: foobox/wordpress:latest-web
         environment:
+            WORDPRESS_FILE_EDIT_ENABLE: $WORDPRESS_FILE_EDIT_ENABLE
+            WORDPRESS_FILE_MODS_ENABLE: $WORDPRESS_FILE_MODS_ENABLE
+            WORDPRESS_CRON_ENABLE: $WORDPRESS_CRON_ENABLE
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
             MYSQL_DATABASE: $MYSQL_DATABASE
