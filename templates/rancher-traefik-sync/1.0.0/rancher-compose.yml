@@ -16,6 +16,7 @@ catalog:
           label: "Rancher Url"
           require: true
           type: "string"
+          description: "https://rancher.example.com/v2-beta/projects/$PROJECTID/certificates"
         
         - variable: RANCHER_USERNAME
           label: "Username"
