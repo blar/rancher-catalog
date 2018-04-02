@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    alpine:
+        image: alpine:3.7
+        environment:
+            CERTIFICATE: $CERTIFICATE
+        labels:
+            io.rancher.container.pull_image: always
