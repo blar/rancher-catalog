@@ -1,5 +1,5 @@
 name: Memcached
-description: Free & open source, high-performance, distributed memory object caching system
+description: Free & open source, high-performance, distributed memory object caching system.
 version: 1.0.0
 category: rancher
 maintainer: Andreas Treichel <gmblar+github@gmail.com>
