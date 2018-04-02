@@ -2,8 +2,8 @@ version: '2'
 
 services:
 
-    application:
-        image: foobox/wordpress:latest
+    web:
+        image: foobox/wordpress:web
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -12,6 +12,19 @@ services:
             - wordpress-content:/var/lib/mysql
         labels:
             io.rancher.container.pull_image: always
+
+    cron:
+        image: foobox/wordpress:cli
+        environment:
+            MYSQL_USER: $MYSQL_USER
+            MYSQL_PASSWORD: $MYSQL_PASSWORD
+            MYSQL_DATABASE: $MYSQL_DATABASE
+        volumes:
+            - wordpress-content:/var/lib/mysql
+        labels:
+            io.rancher.container.pull_image: always
+            io.rancher.container.start_once: 'true'
+            cron.schedule: '@every 5m'
 
     mysql:
         image: mysql:5.7
