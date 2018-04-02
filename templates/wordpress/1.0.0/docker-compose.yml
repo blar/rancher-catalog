@@ -5,12 +5,13 @@ services:
     web:
         image: foobox/wordpress:latest-web
         environment:
-            WORDPRESS_FILE_EDIT_ENABLE: $WORDPRESS_FILE_EDIT_ENABLE
-            WORDPRESS_FILE_MODS_ENABLE: $WORDPRESS_FILE_MODS_ENABLE
-            WORDPRESS_CRON_ENABLE: $WORDPRESS_CRON_ENABLE
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
             MYSQL_DATABASE: $MYSQL_DATABASE
+            WORDPRESS_FILE_EDIT_ENABLE: $WORDPRESS_FILE_EDIT_ENABLE
+            WORDPRESS_FILE_MODS_ENABLE: $WORDPRESS_FILE_MODS_ENABLE
+            WORDPRESS_CRON_ENABLE: $WORDPRESS_CRON_ENABLE
+            WORDPRESS_CACHE: $WORDPRESS_CACHE
         volumes:
             - wordpress-content:/var/www/html/htdocs/wp-content
         labels:
@@ -22,6 +23,10 @@ services:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
             MYSQL_DATABASE: $MYSQL_DATABASE
+            WORDPRESS_FILE_EDIT_ENABLE: $WORDPRESS_FILE_EDIT_ENABLE
+            WORDPRESS_FILE_MODS_ENABLE: $WORDPRESS_FILE_MODS_ENABLE
+            WORDPRESS_CRON_ENABLE: $WORDPRESS_CRON_ENABLE
+            WORDPRESS_CACHE: $WORDPRESS_CACHE
         volumes:
             - wordpress-content:/var/www/html/htdocs/wp-content
         labels:
