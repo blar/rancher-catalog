@@ -16,4 +16,4 @@ catalog:
           label: "Memory limit"
           require: true
           default: 64
-          type: "integer"
+          type: "int"
