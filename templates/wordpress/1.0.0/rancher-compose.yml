@@ -78,3 +78,4 @@ catalog:
           label: "Traefik host"
           require: false
           type: "string"
+          description: "Host:example.com"
