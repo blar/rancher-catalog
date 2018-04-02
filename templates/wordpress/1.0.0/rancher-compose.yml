@@ -10,7 +10,7 @@ services:
         scale: 1
         start_on_create: true
 
-    memcached:
+    memcache:
         scale: 1
         start_on_create: true
 
