@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+    application:
+        image: foobox/wordpress:latest
+        environment:
+            - MYSQL_USER: $MYSQL_USER
+            - MYSQL_PASSWORD: $MYSQL_PASSWORD
+            - MYSQL_DATABASE: $MYSQL_DATABASE
+        volumes:
+            - wordpress-content:/var/lib/mysql
+        labels:
+            io.rancher.container.pull_image: always
+
+    mysql:
+        image: mysql:5.7
+        environment:
+            - MYSQL_USER: $MYSQL_USER
+            - MYSQL_PASSWORD: $MYSQL_PASSWORD
+            - MYSQL_DATABASE: $MYSQL_DATABASE
+            - MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+        volumes:
+            - mysql-data:/var/lib/mysql
+        labels:
+            io.rancher.container.pull_image: always
+
+    memcache:
+        image: foobox/memcached:1.5
+        labels:
+            io.rancher.container.pull_image: always
+        
+volumes:
+    wordpress-content:
+    mysql-data:

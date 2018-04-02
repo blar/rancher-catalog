@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+
+    application:
+        scale: 1
+        start_on_create: true
+
+    mysql:
+        scale: 1
+        start_on_create: true
+
+    memcached:
+        scale: 1
+        start_on_create: true
+
+catalog:
+    name: Wordpress
+    version: 1.0.0
+    description: Wordpress
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: MYSQL_USER
+          label: "MySQL Username"
+          require: true
+          type: "string"
+
+        - variable: MYSQL_PASSWORD
+          label: "MySQL Password"
+          require: true
+          type: "password"
+
+        - variable: MYSQL_DATABASE
+          label: "MySQL Database"
+          require: true
+          type: "string"
+
+        - variable: MYSQL_ROOT_PASSWORD
+          label: "MySQL Root Password"
+          require: true
+          type: "password"
+
