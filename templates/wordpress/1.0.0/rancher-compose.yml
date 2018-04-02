@@ -67,3 +67,14 @@ catalog:
           require: true
           default: false
           type: "boolean"
+
+        - variable: TRAEFIK_ENABLE
+          label: "Enable Traefik"
+          require: false
+          default: false
+          type: "boolean"
+
+        - variable: TRAEFIK_HOST
+          label: "Traefik host"
+          require: false
+          type: "string"

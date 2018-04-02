@@ -16,6 +16,9 @@ services:
             - wordpress-content:/var/www/html/htdocs/wp-content
         labels:
             io.rancher.container.pull_image: always
+            traefik.frontend.rule: $TRAEFIK_HOST
+            traefik.port: '80'
+            traefik.enable: $TRAEFIK_ENABLE
 
     cron:
         image: foobox/wordpress:latest-cli
