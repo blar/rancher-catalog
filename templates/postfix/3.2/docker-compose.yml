@@ -10,7 +10,3 @@ services:
         labels:
             io.rancher.container.start_once: 'true'
             io.rancher.container.pull_image: always
-
-volumes:
-    postfix-spool:
-    
