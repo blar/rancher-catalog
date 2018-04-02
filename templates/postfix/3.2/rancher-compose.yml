@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+
+    postfix:
+        scale: 1
+        start_on_create: true
+
+catalog:
+    name: postfix
+    version: 3.2
+    description: Send mail
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: POSTFIX_DOMAIN
+          label: "Domain name"
+          require: true
+          type: "string"

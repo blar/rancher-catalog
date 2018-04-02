@@ -1,0 +1,6 @@
+name: Postfix
+description: Send mail
+version: 1.0.0
+category: rancher
+maintainer: Andreas Treichel <gmblar+github@gmail.com>
+projectURL: https://github.com/blar/docker-postfix
