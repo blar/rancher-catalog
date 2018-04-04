@@ -38,14 +38,14 @@ services:
             cron.schedule: '@every 5m'
 
     mysql:
-        image: mysql:5.7
+        image: foobox/mariadb:10.1
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
             MYSQL_DATABASE: $MYSQL_DATABASE
             MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
         volumes:
-            - mysql-data:/var/lib/mysql
+            - mariadb-data:/var/lib/mysql
         labels:
             io.rancher.container.pull_image: always
 
@@ -56,4 +56,4 @@ services:
         
 volumes:
     wordpress-content:
-    mysql-data:
+    mariadb-data:
