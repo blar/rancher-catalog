@@ -38,7 +38,7 @@ services:
             cron.schedule: '@every 5m'
 
     mysql:
-        image: foobox/mariadb:10.1
+        image: foobox/mariadb-server:10.1
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
