@@ -3,7 +3,7 @@ version: '2'
 services:
 
     web:
-        image: foobox/wordpress:latest-web
+        image: foobox/wordpress:4.9-web
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -21,7 +21,7 @@ services:
             traefik.enable: $TRAEFIK_ENABLE
 
     cron:
-        image: foobox/wordpress:latest-cli
+        image: foobox/wordpress:4.9-cli
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
