@@ -4,3 +4,5 @@ services:
 
     openssh-server:
         image: foobox/openssh-server:7.7
+        ports:
+            - 222:22/tcp
