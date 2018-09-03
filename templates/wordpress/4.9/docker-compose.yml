@@ -1,9 +1,9 @@
-version: '2'
+version: "2"
 
 services:
 
     web:
-        image: foobox/wordpress:latest-web
+        image: foobox/wordpress:4.9-web
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -15,13 +15,21 @@ services:
         volumes:
             - wordpress-content:/var/www/html/htdocs/wp-content
         labels:
-            io.rancher.container.pull_image: always
-            traefik.frontend.rule: $TRAEFIK_HOST
-            traefik.port: '80'
             traefik.enable: $TRAEFIK_ENABLE
+            traefik.port: "80"
+            traefik.frontend.rule: $TRAEFIK_HOST
+            traefik.frontend.headers.SSLRedirect: "true"
+            traefik.frontend.headers.STSPreload: "true"
+            traefik.frontend.headers.STSSeconds: "315360000"
+            traefik.frontend.headers.browserXSSFilter: "true"
+            traefik.frontend.headers.contentTypeNosniff: "true"
+            traefik.frontend.headers.forceSTSHeader: "false"
+            traefik.frontend.headers.frameDeny: "true"
+            traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
+
 
     cron:
-        image: foobox/wordpress:latest-cli
+        image: foobox/wordpress:4.9-cli
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -33,12 +41,11 @@ services:
         volumes:
             - wordpress-content:/var/www/html/htdocs/wp-content
         labels:
-            io.rancher.container.pull_image: always
             io.rancher.container.start_once: 'true'
             cron.schedule: '@every 5m'
 
     mysql:
-        image: foobox/mariadb-server:10.1
+        image: foobox/mariadb-server:10.2.15
         environment:
             MYSQL_USER: $MYSQL_USER
             MYSQL_PASSWORD: $MYSQL_PASSWORD
@@ -46,14 +53,10 @@ services:
             MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
         volumes:
             - mariadb-data:/var/lib/mysql
-        labels:
-            io.rancher.container.pull_image: always
 
     memcache:
         image: foobox/memcached:1.5
-        labels:
-            io.rancher.container.pull_image: always
-        
+
 volumes:
     wordpress-content:
     mariadb-data:
