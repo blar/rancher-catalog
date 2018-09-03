@@ -23,7 +23,7 @@ services:
 
 catalog:
     name: Wordpress
-    version: 1.0.0
+    version: 4.9
     description: Wordpress
     minimum_rancher_version: 1.6.7
     questions:
