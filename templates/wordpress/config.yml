@@ -1,6 +1,6 @@
 name: Wordpress
 description: Wordpress
-version: 4.9
+version: 4.9.18
 category: blog
 maintainer: Andreas Treichel <gmblar+github@gmail.com>
 projectURL: https://github.com/blar/docker-wordpress
