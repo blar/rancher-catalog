@@ -2,6 +2,6 @@ version: '2'
 
 services:
 
-    sshd:
+    openssh-server:
         scale: 1
         start_on_create: true
