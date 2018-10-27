@@ -52,6 +52,6 @@ catalog:
 
     -   variable: OPENSSH_REMOTE_KEYS_URL
         label: Fetch public keys from this url
-        description: %u is a placeholder for the user name e.g. https://gitlab.example.com/%u.keys
+        description: "%u is a placeholder for the user name e.g. https://gitlab.example.com/%u.keys"
         type: string
         required: false
