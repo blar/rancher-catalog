@@ -2,7 +2,7 @@ version: '2'
 
 services:
     openssh-server:
-        image: foobox/openssh-serber:7.7
+        image: foobox/openssh-server:7.7
         environment:
             OPENSSH_SERVER_BANNER: $$OPENSSH_SERVER_BANNER
             OPENSSH_SERVER_PASSWORD_ALLOW: $OPENSSH_SERVER_PASSWORD_ALLOW
