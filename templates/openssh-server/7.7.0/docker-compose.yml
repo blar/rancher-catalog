@@ -5,6 +5,7 @@ services:
         image: foobox/openssh-server:7.7
         environment:
             OPENSSH_SERVER_BANNER: $OPENSSH_SERVER_BANNER
+            OPENSSH_SERVER_MOTD: $OPENSSH_SERVER_MOTD
             OPENSSH_SERVER_PASSWORD_ALLOW: $OPENSSH_SERVER_PASSWORD_ALLOW
         volumes:
             - host-keys:/etc/ssh/host_keys

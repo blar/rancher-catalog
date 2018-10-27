@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 
 services:
     openssh-server:
@@ -20,20 +20,27 @@ catalog:
     description: 'OpenSSH-Server'
     minimum_rancher_version: 1.6.17
     questions:
-        -   variable: OPENSSH_SERVER_PUBLIC_PORT
-            label: Public port
-            type: int
-            required: true
-            default: "222"
+    -   variable: OPENSSH_SERVER_PUBLIC_PORT
+        label: Public port
+        type: int
+        required: true
+        default: "222"
 
-        -   variable: OPENSSH_SERVER_PASSWORD_ALLOW
-            label: Allow passwort authentication
-            type: boolean
-            required: true
-            default: "false"
+    -   variable: OPENSSH_SERVER_PASSWORD_ALLOW
+        label: Allow passwort authentication
+        type: boolean
+        required: true
+        default: "false"
 
-        -   variable: OPENSSH_SERVER_BANNER
-            label: Banner
-            description: Show Message when connecting to the server
-            type: multiline
-            required: false
+    -   variable: OPENSSH_SERVER_BANNER
+        label: Banner
+        description: Show Message when connecting to the server
+        type: multiline
+        required: false
+
+    -   variable: OPENSSH_SERVER_MOTD
+        label: Motd
+        description: Show Message when login to the server
+        type: multiline
+        required: false
+
