@@ -10,7 +10,7 @@ services:
             port: 22
             unhealthy_threshold: 3
             initializing_timeout: 60000
-            interval: 2000
+            interval: 10000
             strategy: recreate
             reinitializing_timeout: 60000
 
@@ -20,7 +20,7 @@ catalog:
     description: 'OpenSSH-Server'
     minimum_rancher_version: 1.6.17
     questions:
-    -   variable: OPENSSH_SERVER_PUBLIC_PORT
+    -   variable: OPENSSH_SERVER_PORT
         label: Public port
         type: int
         required: true

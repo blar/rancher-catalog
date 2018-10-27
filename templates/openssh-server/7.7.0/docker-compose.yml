@@ -7,11 +7,13 @@ services:
             OPENSSH_SERVER_BANNER: $OPENSSH_SERVER_BANNER
             OPENSSH_SERVER_MOTD: $OPENSSH_SERVER_MOTD
             OPENSSH_SERVER_PASSWORD_ALLOW: $OPENSSH_SERVER_PASSWORD_ALLOW
+            OPENSSH_REMOTE_KEYS_URL: $OPENSSH_REMOTE_KEYS_URL
+            OPENSSH_SERVER_USER_NAMES: $OPENSSH_SERVER_USER_NAMES
         volumes:
             - host-keys:/etc/ssh/host_keys
-        {{- if .Values.OPENSSH_SERVER_PUBLIC_PORT }}
+        {{- if .Values.OPENSSH_SERVER_PORT }}
         ports:
-            - $OPENSSH_SERVER_PUBLIC_PORT:22/tcp
+            - $OPENSSH_SERVER_PORT:22/tcp
         {{- end }}
 
 volumes:
