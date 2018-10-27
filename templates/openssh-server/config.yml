@@ -1,6 +1,6 @@
 name: OpenSSH-Server
 description: OpenSSH-Server
-version: 7.7.1
-category: services
+version: 7.7.0
+category: ssh
 maintainer: Andreas Treichel <gmblar+github@gmail.com>
 projectURL: https://github.com/blar/docker-openssh-server

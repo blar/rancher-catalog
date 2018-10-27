@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+    openssh-server:
+        image: foobox/openssh-serber:7.7
+        environment:
+            OPENSSH_SERVER_BANNER: $$OPENSSH_SERVER_BANNER
+            OPENSSH_SERVER_PASSWORD_ALLOW: $OPENSSH_SERVER_PASSWORD_ALLOW
+      { if $OPENSSH_SERVER_PUBLIC_PORT }
+        ports:
+            - $OPENSSH_SERVER_PUBLIC_PORT:22/tcp
+      { end }
