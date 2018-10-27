@@ -44,3 +44,8 @@ catalog:
         type: multiline
         required: false
 
+    -   variable: OPENSSH_SERVER_USER_NAMES
+        label: User names
+        description: Create users. One user name per line.
+        type: multiline
+        required: false
