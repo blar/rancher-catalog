@@ -2,11 +2,16 @@ version: '2'
 
 services:
     openssh-server:
-        image: foobox/openssh-server:7.7
+        image: foobox/openssh-serber:7.7
         environment:
             OPENSSH_SERVER_BANNER: $$OPENSSH_SERVER_BANNER
             OPENSSH_SERVER_PASSWORD_ALLOW: $OPENSSH_SERVER_PASSWORD_ALLOW
+        volumes:
+            - openssh-server_keys:/etc/ssh/host_keys
         {{- if .Values.OPENSSH_SERVER_PUBLIC_PORT }}
         ports:
             - $OPENSSH_SERVER_PUBLIC_PORT:22/tcp
         {{- end }}
+
+volumes:
+      openssh-server_keys:
