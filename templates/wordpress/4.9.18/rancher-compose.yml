@@ -15,13 +15,30 @@ services:
     mysql:
         scale: 1
         start_on_create: true
+        health_check:
+            response_timeout: 2000
+            healthy_threshold: 2
+            port: 3306
+            unhealthy_threshold: 3
+            initializing_timeout: 60000
+            interval: 2000
+            strategy: recreate
+            reinitializing_timeout: 60000
 
     memcache:
         scale: 1
         start_on_create: true
         upgrade_strategy:
             start_first: true
-
+        health_check:
+            response_timeout: 2000
+            healthy_threshold: 2
+            port: 11211
+            unhealthy_threshold: 3
+            initializing_timeout: 60000
+            interval: 2000
+            strategy: recreate
+            reinitializing_timeout: 60000
 catalog:
     name: Wordpress
     version: 4.9.18
