@@ -35,8 +35,8 @@ catalog:
           require: true
           type: "service"
 
-        - variable: NGINX_HOST
-          label: "Host"
+        - variable: NGINX_PROXY_HOST
+          label: "Proxy Host"
           require: true
           type: "string"
 
