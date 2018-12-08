@@ -31,4 +31,4 @@ services:
         environment:
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
-            NGNINX_RESOLVERS: "169.254.169.250"
+            NGINX_RESOLVERS: "169.254.169.250"
