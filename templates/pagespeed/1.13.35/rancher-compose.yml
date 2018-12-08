@@ -1,0 +1,79 @@
+version: '2'
+
+services:
+
+    pagespeed:
+        drain_timeout_ms: 10000
+        scale: 1
+        start_on_create: true
+        upgrade_strategy:
+            start_first: true
+
+    nginx-reverse-proxy:
+        drain_timeout_ms: 10000
+        scale: 1
+        start_on_create: true
+        health_check:
+            response_timeout: 2000
+            healthy_threshold: 2
+            port: 3306
+            unhealthy_threshold: 3
+            initializing_timeout: 60000
+            interval: 10000
+            strategy: recreate
+            reinitializing_timeout: 60000
+
+catalog:
+    name: Pagespeed
+    version: 1.13.35
+    description: Pagespeed
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: TRAEFIK_HOST
+          label: "Traefik host"
+          required: false
+          type: "string"
+          description: "Host:example.com"
+
+        - variable: TRAEFIK_HTTPS_REDIRECT
+          label: "HTTPS Redirect"
+          required: false
+          default: false
+          type: "boolean"
+
+        - variable: NGINX_UPSTREAM_SERVICE
+          label: "Service"
+          require: true
+          type: "service"
+
+        - variable: NGINX_HOST
+          label: "Host"
+          require: true
+          type: "string"
+
+        - variable: PAGESPEED_DOMAINS
+          label: "Domains"
+          required: false
+          type: "string"
+          description: "Kommasepatierte Liste von erlaubten Domainnamen."
+
+        - variable: PAGESPEED_REWRITE_LEVEL
+          label: "Rewrite Level"
+          required: true
+          type: "enum"
+          default: "CoreFilters"
+          options:
+              - "PassThrough"
+              - "CoreFilters"
+              - "OptimizeForBandwidth"
+          description: "https://www.modpagespeed.com/doc/config_filters"
+
+        - variable: PAGESPEED_FILTERS_ENABLE
+          label: "Enable Filters"
+          required: false
+          type: "string"
+
+        - variable: PAGESPEED_FILTERS_DISABLE
+          label: "Disable Filters"
+          required: false
+          type: "string"

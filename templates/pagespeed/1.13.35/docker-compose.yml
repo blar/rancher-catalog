@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+
+    pagespeed:
+        image: foobox/nginx-pagespeed:1.13.35
+        environment:
+            PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy"
+            PAGESPEED_DOMAINS: $PAGESPEED_DOMAINS
+            PAGESPEED_REWRITE_LEVEL: $PAGESPEED_REWRITE_LEVEL
+            PAGESPEED_FILTERS_ENABLE: $PAGESPEED_FILTERS_ENABLE
+            PAGESPEED_FILTERS_DISABLE: PAGESPEED_FILTERS_DISABLE
+        labels:
+            traefik.enable: $TRAEFIK_ENABLE
+            traefik.port: "80"
+            traefik.frontend.rule: $TRAEFIK_HOST
+            traefik.frontend.headers.SSLRedirect: $TRAEFIK_HTTPS_REDIRECT
+            traefik.frontend.headers.STSPreload: "true"
+            traefik.frontend.headers.STSSeconds: "315360000"
+            traefik.frontend.headers.browserXSSFilter: "true"
+            traefik.frontend.headers.contentTypeNosniff: "true"
+            traefik.frontend.headers.forceSTSHeader: "false"
+            traefik.frontend.headers.frameDeny: "true"
+            traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
+
+    nginx-reverse-proxy:
+        image: foobox/nginx-reverse-proxy:1.14.1
+        environment:
+            NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
+            NGINX_HOST: $NGINX_HOST
