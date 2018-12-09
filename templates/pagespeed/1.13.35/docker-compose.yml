@@ -5,7 +5,7 @@ services:
     pagespeed:
         image: foobox/nginx-pagespeed:1.13.35
         environment:
-            PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy.rancher.internal"
+            PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy"
             PAGESPEED_PROXY_HOST: $NGINX_PROXY_HOST
             PAGESPEED_RESOLVERS: "169.254.169.250"
             PAGESPEED_DOMAINS: $PAGESPEED_DOMAINS
@@ -17,7 +17,7 @@ services:
             traefik.enable: $TRAEFIK_ENABLE
             traefik.port: "80"
             traefik.frontend.rule: $TRAEFIK_HOST
-            traefik-frontend-priority: "10"
+            traefik.frontend.priority: "10"
             traefik.frontend.headers.SSLRedirect: $TRAEFIK_HTTPS_REDIRECT
             traefik.frontend.headers.STSPreload: "true"
             traefik.frontend.headers.STSSeconds: "315360000"
