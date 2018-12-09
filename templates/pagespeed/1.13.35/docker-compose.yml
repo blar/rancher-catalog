@@ -38,7 +38,7 @@ services:
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
         labels:
-            traefik.enable: $TRAEFIK_ENABLE
+            traefik.enable: "false"
             traefik.port: "80"
             traefik.frontend.rule: $TRAEFIK_HOST
             traefik.frontend.priority: "5"
