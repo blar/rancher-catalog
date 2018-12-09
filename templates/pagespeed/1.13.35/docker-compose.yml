@@ -37,7 +37,7 @@ services:
             traefik.enable: $TRAEFIK_ENABLE
             traefik.port: "80"
             traefik.frontend.rule: $TRAEFIK_HOST
-            traefik-frontend-priority: "5"
+            traefik.frontend.priority: "5"
             traefik.frontend.headers.SSLRedirect: $TRAEFIK_HTTPS_REDIRECT
             traefik.frontend.headers.STSPreload: "true"
             traefik.frontend.headers.STSSeconds: "315360000"
