@@ -5,7 +5,7 @@ services:
     pagespeed:
         image: foobox/nginx-pagespeed:1.13.35
         environment:
-            PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy"
+            PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy.rancher.internal"
             PAGESPEED_PROXY_HOST: $NGINX_PROXY_HOST
             PAGESPEED_RESOLVERS: "169.254.169.250"
             PAGESPEED_DOMAINS: $PAGESPEED_DOMAINS

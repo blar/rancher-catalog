@@ -40,6 +40,11 @@ catalog:
           require: true
           type: "string"
 
+        - variable: TRAEFIK_ENABLE
+          label: "Traefik aktivieren"
+          required: false
+          type: "boolean"
+
         - variable: TRAEFIK_HOST
           label: "Traefik host"
           required: false
