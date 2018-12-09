@@ -17,6 +17,7 @@ services:
             traefik.enable: $TRAEFIK_ENABLE
             traefik.port: "80"
             traefik.frontend.rule: $TRAEFIK_HOST
+            traefik-frontend-priority: "10"
             traefik.frontend.headers.SSLRedirect: $TRAEFIK_HTTPS_REDIRECT
             traefik.frontend.headers.STSPreload: "true"
             traefik.frontend.headers.STSSeconds: "315360000"
@@ -32,3 +33,16 @@ services:
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
             NGINX_RESOLVERS: "169.254.169.250"
+        labels:
+            traefik.enable: $TRAEFIK_ENABLE
+            traefik.port: "80"
+            traefik.frontend.rule: $TRAEFIK_HOST
+            traefik-frontend-priority: "5"
+            traefik.frontend.headers.SSLRedirect: $TRAEFIK_HTTPS_REDIRECT
+            traefik.frontend.headers.STSPreload: "true"
+            traefik.frontend.headers.STSSeconds: "315360000"
+            traefik.frontend.headers.browserXSSFilter: "true"
+            traefik.frontend.headers.contentTypeNosniff: "true"
+            traefik.frontend.headers.forceSTSHeader: "false"
+            traefik.frontend.headers.frameDeny: "true"
+            traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
