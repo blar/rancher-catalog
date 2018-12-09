@@ -5,9 +5,11 @@ services:
     pagespeed:
         image: foobox/nginx-pagespeed:1.13.35
         environment:
+            NGINX_RESOLVERS: "169.254.169.250"
+            NGINX_RESOLVER_VALID: "5s"
+            NGINX_RESOLVER_TIMEOUT: "5s"
             PAGESPEED_UPSTREAM_HOST: "nginx-reverse-proxy"
             PAGESPEED_PROXY_HOST: $NGINX_PROXY_HOST
-            PAGESPEED_RESOLVERS: "169.254.169.250"
             PAGESPEED_DOMAINS: $PAGESPEED_DOMAINS
             PAGESPEED_REWRITE_LEVEL: $PAGESPEED_REWRITE_LEVEL
             PAGESPEED_FILTERS_ENABLE: $PAGESPEED_FILTERS_ENABLE
@@ -30,9 +32,11 @@ services:
     nginx-reverse-proxy:
         image: foobox/nginx-reverse-proxy:1.14.1
         environment:
+            NGINX_RESOLVERS: "169.254.169.250"
+            NGINXRESOLVER_VALID: "5s"
+            NGINX_RESOLVER_TIMEOUT: "5s"
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
-            NGINX_RESOLVERS: "169.254.169.250"
         labels:
             traefik.enable: $TRAEFIK_ENABLE
             traefik.port: "80"
