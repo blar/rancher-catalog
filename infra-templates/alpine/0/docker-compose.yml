@@ -3,5 +3,6 @@ alpine:
     command: sleep 3600
     labels:
         io.rancher.container.create_agent: "true"
-        io.rancher.container.agent.role: environmentAdmin,agent
+        io.rancher.container.agent.role: "environmentAdmin"
+        io.rancher.scheduler.global: "true"
 
