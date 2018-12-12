@@ -12,24 +12,6 @@ catalog:
     description: Sync certificates from Traefik to the certificate storage in Rancher.
     minimum_rancher_version: 1.6.7
     questions:
-        - variable: RANCHER_URL
-          label: "Rancher URL"
-          required: false
-          type: "string"
-          description: "Default $CATTLE_URL"
-
-        - variable: RANCHER_USERNAME
-          label: "Rancher Username"
-          required: false
-          type: "string"
-          description: "Default $CATTLE_ACCESS_KEY"
-
-        - variable: RANCHER_PASSWORD
-          label: "Rancher Password"
-          required: false
-          type: "password"
-          description: "Default $CATTLE_SECRET_KEY"
-
         - variable: TRAEFIK_ACME_VOLUME
           label: "Traefik ACME Volume"
           required: true
