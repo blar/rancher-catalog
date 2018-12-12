@@ -1,0 +1,11 @@
+.catalog:
+    name: "Alpine"
+    version: "v0.1.0"
+    description: "Rancher Kubernetes service"
+    questions:
+        - variable: "api_server_port"
+          label: "Kubernetes API port"
+          type: "string"
+          required: true
+          default: "8090"
+          description: This is the port that the Kubernetes API server should listen on.
