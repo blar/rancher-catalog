@@ -1,6 +1,6 @@
 name: Test
 description: Test
-version:  v0.0.1
+version: v0.0.1
 category: Test
 labels:
     io.rancher.orchestration.supported: 'cattle,mesos,swarm,kubernetes'
