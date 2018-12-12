@@ -2,7 +2,7 @@ version: '2'
 
 services:
     rancher-traefik-sync:
-        image: foobox/rancher-traefik-sync:latest
+        image: foobox/rancher-traefik-sync:1.0.0
         environment:
             RANCHER_URL: $RANCHER_URL
             RANCHER_USERNAME: $RANCHER_USERNAME
