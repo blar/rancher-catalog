@@ -1,6 +1,5 @@
 alpine:
     image: alpine:3.8
-    command: sleep 3600
     labels:
         io.rancher.container.create_agent: "true"
         io.rancher.container.agent.role: "environmentAdmin"

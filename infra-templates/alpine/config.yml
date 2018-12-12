@@ -1,6 +1,4 @@
-name: Test
-description: Test
+name: Alpine
+description: Alpine
 version: v0.0.1
 category: Framework
-labels:
-    io.rancher.orchestration.supported: 'cattle'
