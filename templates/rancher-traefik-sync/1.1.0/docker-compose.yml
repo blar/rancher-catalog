@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    rancher-traefik-sync:
+        image: foobox/rancher-traefik-sync:latest
+        environment:
+            RANCHER_URL: $RANCHER_URL
+            RANCHER_USERNAME: $RANCHER_USERNAME
+            RANCHER_PASSWORD: $RANCHER_PASSWORD
+        volumes:
+            - $TRAEFIK_ACME_VOLUME:/mnt
+        labels:
+            io.rancher.container.start_once: 'true'
+            cron.schedule: '@every 1h'
