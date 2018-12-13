@@ -26,14 +26,14 @@ services:
             traefik.frontend.headers.browserXSSFilter: "true"
             traefik.frontend.headers.contentTypeNosniff: "true"
             traefik.frontend.headers.forceSTSHeader: "false"
-            traefik.frontend.headers.frameDeny: "true"
+            traefik.frontend.headers.frameDeny: "false"
             traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
 
     nginx-reverse-proxy:
         image: foobox/nginx-reverse-proxy:1.14.1
         environment:
             NGINX_RESOLVERS: "169.254.169.250"
-            NGINXRESOLVER_VALID: "5s"
+            NGINX_RESOLVER_VALID: "5s"
             NGINX_RESOLVER_TIMEOUT: "5s"
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
@@ -48,5 +48,5 @@ services:
             traefik.frontend.headers.browserXSSFilter: "true"
             traefik.frontend.headers.contentTypeNosniff: "true"
             traefik.frontend.headers.forceSTSHeader: "false"
-            traefik.frontend.headers.frameDeny: "true"
+            traefik.frontend.headers.frameDeny: "false"
             traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
