@@ -45,6 +45,25 @@ catalog:
           description: "Maximale Grösse einer Post-Anfrage (z.B. 32m)"
           require: true
           type: "string"
+          default: "10s"
+
+        - variable: NGINX_SEND_TIMEOUT
+          label: "NGINX_SEND_TIMEOUT"
+          require: true
+          type: "string"
+          default: "10s"
+
+        - variable: NGINX_PROXY_READ_TIMEOUT
+          label: "NGINX_PROXY_READ_TIMEOUT"
+          require: true
+          type: "string"
+          default: "10s"
+
+        - variable: NGINX_PROXY_SEND_TIMEOUT
+          label: "NGINX_PROXY_SEND_TIMEOUT"
+          require: true
+          type: "string"
+          default: "10s"
 
         - variable: TRAEFIK_ENABLE
           label: "Traefik aktivieren"
