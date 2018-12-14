@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+
+    memcache-server:
+        drain_timeout_ms: 10000
+        scale: 1
+        start_on_create: true
+        upgrade_strategy:
+            start_first: true
+
+catalog:
+    name: memcache-server
+    version: 1.5.8
+    description: Free & open source, high-performance, distributed memory object caching system.
+    minimum_rancher_version: 1.6.7
+    questions:
+        - variable: MEMCACHED_MEMORY_LIMIT
+          label: "Memory limit"
+          require: true
+          default: 64
+          type: "int"

@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+    memcached:
+        image: foobox/memcache-server:1.5
+        environment:
+            MEMCACHED_MEMORY_LIMIT: $MEMCACHED_MEMORY_LIMIT
