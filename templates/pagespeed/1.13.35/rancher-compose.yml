@@ -37,33 +37,34 @@ catalog:
 
         - variable: NGINX_PROXY_HOST
           label: "Proxy Host"
+          description: "Hostname der dem Upstream im HTTP-Header übergeben wird."
           require: true
           type: "string"
 
         - variable: NGINX_CLIENT_BODY_SIZE_MAX
           label: "NGINX_CLIENT_BODY_SIZE_MAX"
-          description: "Maximale Grösse einer Post-Anfrage (z.B. 32m)"
+          description: "Maximale Grösse einer POST-Anfrage (z.B. 32m)"
           require: true
           type: "string"
           default: "10s"
 
         - variable: NGINX_SEND_TIMEOUT
           label: "NGINX_SEND_TIMEOUT"
-          description: "z.B. 10s"
+          description: "Maximale Zeit zwischen zwei Schreibzugriffen (z.B. 10s)"
           require: true
           type: "string"
           default: "10s"
 
         - variable: NGINX_PROXY_READ_TIMEOUT
           label: "NGINX_PROXY_READ_TIMEOUT"
-          description: "z.B. 10s"
+          description: "Maximale Zeit zwischen zwei Lesezugriffen auf den Upstream (z.B. 10s)"
           require: true
           type: "string"
           default: "10s"
 
         - variable: NGINX_PROXY_SEND_TIMEOUT
           label: "NGINX_PROXY_SEND_TIMEOUT"
-          description: "z.B. 10s"
+          description: "Maximale Zeit zwischen zwei Schreibzugriffen auf den Upstream (z.B. 10s)"
           require: true
           type: "string"
           default: "10s"
