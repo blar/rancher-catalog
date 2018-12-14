@@ -40,6 +40,12 @@ catalog:
           require: true
           type: "string"
 
+        - variable: NGINX_CLIENT_BODY_SIZE_MAX
+          label: "NGINX_CLIENT_BODY_SIZE_MAX"
+          description: "Maximale Grösse einer Post-Anfrage (z.B. 32m)"
+          require: true
+          type: "string"
+
         - variable: TRAEFIK_ENABLE
           label: "Traefik aktivieren"
           required: false

@@ -15,6 +15,7 @@ services:
             PAGESPEED_FILTERS_ENABLE: $PAGESPEED_FILTERS_ENABLE
             PAGESPEED_FILTERS_DISABLE: $PAGESPEED_FILTERS_DISABLE
             PAGESPEED_MAP_ORIGIN_DOMAIN: $NGINX_HOST
+            NGINX_CLIENT_BODY_SIZE_MAX: $NGINX_CLIENT_BODY_SIZE_MAX
         labels:
             traefik.enable: $TRAEFIK_ENABLE
             traefik.port: "80"
@@ -30,13 +31,14 @@ services:
             traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
 
     nginx-reverse-proxy:
-        image: foobox/nginx-reverse-proxy:1.14.1
+        image: foobox/nginx-reverse-proxy:1.14.2
         environment:
             NGINX_RESOLVERS: "169.254.169.250"
             NGINXRESOLVER_VALID: "5s"
             NGINX_RESOLVER_TIMEOUT: "5s"
             NGINX_UPSTREAM_SERVICE: $NGINX_UPSTREAM_SERVICE
             NGINX_PROXY_HOST: $NGINX_PROXY_HOST
+            NGINX_CLIENT_BODY_SIZE_MAX: $NGINX_CLIENT_BODY_SIZE_MAX
         labels:
             traefik.enable: "false"
             traefik.port: "80"
