@@ -49,18 +49,21 @@ catalog:
 
         - variable: NGINX_SEND_TIMEOUT
           label: "NGINX_SEND_TIMEOUT"
+          description: "z.B. 10s"
           require: true
           type: "string"
           default: "10s"
 
         - variable: NGINX_PROXY_READ_TIMEOUT
           label: "NGINX_PROXY_READ_TIMEOUT"
+          description: "z.B. 10s"
           require: true
           type: "string"
           default: "10s"
 
         - variable: NGINX_PROXY_SEND_TIMEOUT
           label: "NGINX_PROXY_SEND_TIMEOUT"
+          description: "z.B. 10s"
           require: true
           type: "string"
           default: "10s"
@@ -86,7 +89,7 @@ catalog:
           label: "Domains"
           required: false
           type: "string"
-          description: "Kommasepatierte Liste von erlaubten Domainnamen."
+          description: "Kommasepatierte Liste von erlaubten Domainnamen. Die Domain aus NGINX_PROXY_HOST wird automatisch übernommen."
 
         - variable: PAGESPEED_REWRITE_LEVEL
           label: "Rewrite Level"
