@@ -46,7 +46,7 @@ catalog:
           description: "Maximale Grösse einer POST-Anfrage (z.B. 32m)"
           require: true
           type: "string"
-          default: "10s"
+          default: "4m"
 
         - variable: NGINX_SEND_TIMEOUT
           label: "NGINX_SEND_TIMEOUT"
