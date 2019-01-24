@@ -32,11 +32,11 @@ services:
             traefik.frontend.headers.forceSTSHeader: "false"
             traefik.frontend.headers.frameDeny: "false"
             traefik.frontend.headers.referrerPolicy: "origin-when-cross-origin"
-            {{ if eq .Values.TRAEFIK_ERROR_ENABLE "true" }}
+            {{- if eq .Values.TRAEFIK_ERROR_ENABLE "true" }}
             traefik.frontend.errors.5xx.backend: $TRAEFIK_ERROR_BACKEND
             traefik.frontend.errors.5xx.status: $TRAEFIK_ERROR_STATUS
             traefik.frontend.errors.5xx.query: $TRAEFIK_ERROR_QUERY
-            {{ end }}
+            {{- end }}
 
     nginx-reverse-proxy:
         image: foobox/nginx-reverse-proxy:1.14.2
