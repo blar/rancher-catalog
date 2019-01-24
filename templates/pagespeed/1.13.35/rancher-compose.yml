@@ -96,6 +96,13 @@ catalog:
             type: "boolean"
 
         -
+            variable: TRAEFIK_ERROR_ENABLE
+            label: "Enable error container"
+            required: false
+            default: false
+            type: "boolean"
+
+        -
             variable: TRAEFIK_ERROR_BACKEND
             label: "Error backend"
             require: false
@@ -146,9 +153,3 @@ catalog:
             required: false
             type: "string"
 
-        -
-            variable: TRAEFIK_ERROR_ENABLE
-            label: "Enable error container"
-            required: false
-            default: false
-            type: "boolean"
