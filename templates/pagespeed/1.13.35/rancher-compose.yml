@@ -107,7 +107,7 @@ catalog:
             label: "Error backend"
             description: "eg. error-errors (CONTAINER-STACK)"
             require: false
-            type: "service"
+            type: "string"
 
         -
             variable: TRAEFIK_ERROR_STATUS
