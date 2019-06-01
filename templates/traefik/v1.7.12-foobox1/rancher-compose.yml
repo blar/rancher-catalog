@@ -88,7 +88,7 @@ catalog:
             default: "traefik-acme"
             type: "string"
 
-        -   variable: "TRAEFIK_COMPRESS"
+        -   variable: "TRAEFIK_COMPRESSION"
             label: "Enable compression:"
             description: |
                 Enable Traefik compression for entrypoints.
