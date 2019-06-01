@@ -30,86 +30,127 @@ catalog:
     description: Pagespeed
     minimum_rancher_version: 1.6.7
     questions:
-        - variable: NGINX_UPSTREAM_SERVICE
-          label: "Service"
-          require: true
-          type: "service"
+        -
+            variable: NGINX_UPSTREAM_SERVICE
+            label: "Service"
+            require: true
+            type: "service"
 
-        - variable: NGINX_PROXY_HOST
-          label: "Proxy Host"
-          description: "Hostname der dem Upstream im HTTP-Header übergeben wird."
-          require: true
-          type: "string"
+        -
+            variable: NGINX_PROXY_HOST
+            label: "Proxy Host"
+            description: "Hostname der dem Upstream im HTTP-Header übergeben wird."
+            require: true
+            type: "string"
 
-        - variable: NGINX_CLIENT_BODY_SIZE_MAX
-          label: "NGINX_CLIENT_BODY_SIZE_MAX"
-          description: "Maximale Grösse einer POST-Anfrage (z.B. 32m)"
-          require: true
-          type: "string"
-          default: "4m"
+        -
+            variable: NGINX_CLIENT_BODY_SIZE_MAX
+            label: "NGINX_CLIENT_BODY_SIZE_MAX"
+            description: "Maximale Grösse einer POST-Anfrage (z.B. 32m)"
+            require: true
+            type: "string"
+            default: "4m"
 
-        - variable: NGINX_SEND_TIMEOUT
-          label: "NGINX_SEND_TIMEOUT"
-          description: "Maximale Zeit zwischen zwei Schreibzugriffen (z.B. 10s)"
-          require: true
-          type: "string"
-          default: "10s"
+        -
+            variable: NGINX_SEND_TIMEOUT
+            label: "NGINX_SEND_TIMEOUT"
+            description: "Maximale Zeit zwischen zwei Schreibzugriffen (z.B. 10s)"
+            require: true
+            type: "string"
+            default: "10s"
 
-        - variable: NGINX_PROXY_READ_TIMEOUT
-          label: "NGINX_PROXY_READ_TIMEOUT"
-          description: "Maximale Zeit zwischen zwei Lesezugriffen auf den Upstream (z.B. 10s)"
-          require: true
-          type: "string"
-          default: "10s"
+        -
+            variable: NGINX_PROXY_READ_TIMEOUT
+            label: "NGINX_PROXY_READ_TIMEOUT"
+            description: "Maximale Zeit zwischen zwei Lesezugriffen auf den Upstream (z.B. 10s)"
+            require: true
+            type: "string"
+            default: "10s"
 
-        - variable: NGINX_PROXY_SEND_TIMEOUT
-          label: "NGINX_PROXY_SEND_TIMEOUT"
-          description: "Maximale Zeit zwischen zwei Schreibzugriffen auf den Upstream (z.B. 10s)"
-          require: true
-          type: "string"
-          default: "10s"
+        -
+            variable: NGINX_PROXY_SEND_TIMEOUT
+            label: "NGINX_PROXY_SEND_TIMEOUT"
+            description: "Maximale Zeit zwischen zwei Schreibzugriffen auf den Upstream (z.B. 10s)"
+            require: true
+            type: "string"
+            default: "10s"
 
-        - variable: TRAEFIK_ENABLE
-          label: "Traefik aktivieren"
-          required: false
-          type: "boolean"
+        -
+            variable: TRAEFIK_ENABLE
+            label: "Traefik aktivieren"
+            required: false
+            type: "boolean"
 
-        - variable: TRAEFIK_HOST
-          label: "Traefik host"
-          required: false
-          type: "string"
-          description: "Host:example.com"
+        -
+            variable: TRAEFIK_HOST
+            label: "Traefik host"
+            required: false
+            type: "string"
+            description: "Host:example.com"
 
-        - variable: TRAEFIK_HTTPS_REDIRECT
-          label: "HTTPS Redirect"
-          required: false
-          default: false
-          type: "boolean"
+        -
+            variable: TRAEFIK_HTTPS_REDIRECT
+            label: "HTTPS Redirect"
+            required: false
+            default: false
+            type: "boolean"
 
-        - variable: PAGESPEED_DOMAINS
-          label: "Domains"
-          required: false
-          type: "string"
-          description: "Kommasepatierte Liste von erlaubten Domainnamen. Die Domain aus NGINX_PROXY_HOST wird automatisch übernommen."
+        -
+            variable: TRAEFIK_ERROR_ENABLE
+            label: "Enable error container"
+            required: false
+            default: false
+            type: "boolean"
 
-        - variable: PAGESPEED_REWRITE_LEVEL
-          label: "Rewrite Level"
-          required: true
-          type: "enum"
-          default: "CoreFilters"
-          options:
-              - "PassThrough"
-              - "CoreFilters"
-              - "OptimizeForBandwidth"
-          description: "https://www.modpagespeed.com/doc/config_filters"
+        -
+            variable: TRAEFIK_ERROR_BACKEND
+            label: "Error backend"
+            description: "eg. error-errors (CONTAINER-STACK)"
+            require: false
+            type: "string"
 
-        - variable: PAGESPEED_FILTERS_ENABLE
-          label: "Enable Filters"
-          required: false
-          type: "string"
+        -
+            variable: TRAEFIK_ERROR_STATUS
+            label: "Error status codes"
+            require: false
+            type: "string"
+            default: "500-599"
 
-        - variable: PAGESPEED_FILTERS_DISABLE
-          label: "Disable Filters"
-          required: false
-          type: "string"
+        -
+            variable: TRAEFIK_ERROR_QUERY
+            label: "Error status codes"
+            require: false
+            type: "string"
+            default: "/{status}"
+
+        -
+            variable: PAGESPEED_DOMAINS
+            label: "Domains"
+            required: false
+            type: "string"
+            description: "Kommasepatierte Liste von erlaubten Domainnamen. Die Domain aus NGINX_PROXY_HOST wird automatisch übernommen."
+
+        -
+            variable: PAGESPEED_REWRITE_LEVEL
+            label: "Rewrite Level"
+            required: true
+            type: "enum"
+            default: "CoreFilters"
+            options:
+                - "PassThrough"
+                - "CoreFilters"
+                - "OptimizeForBandwidth"
+            description: "https://www.modpagespeed.com/doc/config_filters"
+
+        -
+            variable: PAGESPEED_FILTERS_ENABLE
+            label: "Enable Filters"
+            required: false
+            type: "string"
+
+        -
+            variable: PAGESPEED_FILTERS_DISABLE
+            label: "Disable Filters"
+            required: false
+            type: "string"
 
