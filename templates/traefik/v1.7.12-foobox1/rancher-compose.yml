@@ -136,14 +136,14 @@ catalog:
             required: true
             type: "int"
 
-        -   variable: "TRAEFIK_HTTP_ADDRESS"
+        -   variable: "TRAEFIK_HTTP_ENTRYPOINT_ADDRESS"
             label: "HTTP address"
             default: ":80"
             required: true
             type: "string"
 
-        -   variable: "TRAEFIK_HTTPS_ADDRESS"
-            label: "HTTP address"
+        -   variable: "TRAEFIK_HTTPS_ENTRYPOINT_ADDRESS"
+            label: "HTTPS address"
             default: ":443"
             required: true
             type: "string"

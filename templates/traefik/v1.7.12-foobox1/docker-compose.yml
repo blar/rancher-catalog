@@ -4,9 +4,9 @@ services:
     traefik:
         image: foobox/traefik:1.7.12-amd64
         ports:
-            - "80:80"
-            - "443:443"
-            - "8000:8000"
+            - "§TRAEFIK_HTTP_ENTRYPOINT_ADDRESS:80"
+            - "$TRAEFIK_HTTPS_ENTRYPOINT_ADDRESS:443"
+            - "$TRAEFIK_ADMIN_ENTRYPOINT_ADDRESS:8000"
         labels:
             io.rancher.scheduler.global: "true"
             io.rancher.scheduler.affinity:host_label: traefik_lb=true
