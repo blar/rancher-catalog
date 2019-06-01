@@ -4,7 +4,7 @@ services:
     traefik:
         image: foobox/traefik:1.7.12-amd64
         ports:
-            - "§TRAEFIK_HTTP_ENTRYPOINT_ADDRESS:80"
+            - "$TRAEFIK_HTTP_ENTRYPOINT_ADDRESS:80"
             - "$TRAEFIK_HTTPS_ENTRYPOINT_ADDRESS:443"
             - "$TRAEFIK_ADMIN_ENTRYPOINT_ADDRESS:8000"
         labels:
