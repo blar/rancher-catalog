@@ -2,7 +2,7 @@ version: '2'
 
 catalog:
     name: "traefik"
-    version: "v1.7.12-foobox1"
+    version: "v1.7.12"
     description: "Traefik load balancer."
     minimum_rancher_version: v0.59.0
     questions:
@@ -81,6 +81,12 @@ catalog:
                 - "RSA2048"
                 - "EC384"
                 - "EC256"
+
+        -   variable: "TRAEFIK_ACME_VOLUME"
+            label: "ACME volume name"
+            required: true
+            default: "traefik-acme"
+            type: "string"
 
         -   variable: "TRAEFIK_COMPRESS"
             label: "Enable compression:"

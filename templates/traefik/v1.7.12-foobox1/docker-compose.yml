@@ -28,7 +28,7 @@ services:
             TRAEFIK_PING_ENABLE: "true"
             TRAEFIK_TLS_VERSION_MIN: $TRAEFIK_TLS_VERSION_MIN
         volumes:
-            - traefik-acme:/etc/traefik/acme
+            - $TRAEFIK_ACME_VOLUME:/etc/traefik/acme
 
 volumes:
-    traefik-acme:
+    $TRAEFIK_ACME_VOLUME:
