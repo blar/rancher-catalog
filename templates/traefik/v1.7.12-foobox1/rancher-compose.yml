@@ -38,6 +38,24 @@ catalog:
                 - "VersionTLS10"
                 - "VersionSSL30"
 
+        -   variable: "TRAEFIK_API_ENABLE"
+            label: "TRAEFIK_API_ENABLE"
+            default: false
+            required: true
+            type: "boolean"
+
+         -  variable: "TRAEFIK_DASHBOARD_ENABLE"
+            label: "TRAEFIK_DASHBOARD_ENABLE"
+            default: false
+            required: true
+            type: "boolean"
+
+         -  variable: "TRAEFIK_API_STATISTICS"
+            label: "TRAEFIK_API_STATISTICS"
+            default: false
+            required: true
+            type: "boolean"
+
         -   variable: "TRAEFIK_ACME_ENABLE"
             description: "Enable acme support on traefik."
             label: "ACME enable:"
