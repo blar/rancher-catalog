@@ -1,0 +1,147 @@
+version: '2'
+
+catalog:
+    name: "traefik"
+    version: "v1.7.12"
+    description: "Traefik load balancer."
+    minimum_rancher_version: v0.59.0
+    questions:
+        -   variable: "RANCHER_MODE"
+            label: "Choose rancher integration:"
+            default: metadata
+            required: true
+            type: enum
+            options:
+                - "metadata"
+                - "api"
+
+        -   variable: "RANCHER_HEALTHCHECK"
+            label: "Rancher healthcheck filter:"
+            required: true
+            default: false
+            type: "boolean"
+
+        -   variable: "TRAEFIK_HTTPS_ENABLE"
+            label: "Enable HTTPS:"
+            default: false
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_TLS_VERSION_MIN"
+            label: "Min HTTPS version:"
+            required: true
+            default: "VersionTLS12"
+            type: "enum"
+            options:
+                - "VersionTLS12"
+                - "VersionTLS11"
+                - "VersionTLS10"
+                - "VersionSSL30"
+
+        -   variable: "TRAEFIK_ACME_ENABLE"
+            description: "Enable acme support on traefik."
+            label: "ACME enable:"
+            required: true
+            default: false
+            type: "boolean"
+
+        -   variable: "TRAEFIK_ACME_EMAIL"
+            description: "ACME user email."
+            label: "ACME email:"
+            required: true
+            default: "test@traefik.io"
+            type: "string"
+
+        -   variable: "TRAEFIK_ACME_MODE"
+            description: "ACME challenge."
+            label: "ACME challenge:"
+            required: true
+            default: "http"
+            type: enum
+            options:
+                - "http"
+                - "dns"
+
+        -   variable: "TRAEFIK_ACME_CA_SERVER"
+            description: "ACME caServer to use."
+            label: "ACME caServer:"
+            required: true
+            default: "https://acme-staging-v02.api.letsencrypt.org/directory"
+            type: "string"
+
+        -   variable: "TRAEFIK_ACME_KEYTYPE"
+            description: "ACME key type to use."
+            label: "ACME key type:"
+            required: true
+            default: RSA4096
+            type: "enum"
+            options:
+                - "RSA8192"
+                - "RSA4096"
+                - "RSA2048"
+                - "EC384"
+                - "EC256"
+
+        -   variable: "TRAEFIK_COMPRESS"
+            label: "Enable compression:"
+            description: |
+                Enable Traefik compression for entrypoints.
+            default: true
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_READ_TIMEOUT"
+            label: "Timeout read:"
+            description: |
+                Traefik respondingTimeouts readTimeout (s).
+            default: 0
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_WRITE_TIMEOUT"
+            label: "Timeout write:"
+            description: |
+                Traefik respondingTimeouts writeTimeout (s).
+            default: 0
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_IDLE_TIMEOUT"
+            label: "Timeout idle:"
+            description: |
+                Traefik respondingTimeouts idleTimeout (s).
+            default: 180
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_DIAL_TIMEOUT"
+            label: "Timeout dial:"
+            description: |
+                Traefik forwardingTimeouts dialTimeout (s).
+            default: 30
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_RESPONSE_HEADER_TIMEOUT"
+            label: "Timeout header:"
+            description: |
+                Traefik forwardingTimeouts responseHeaderTimeout (s).
+            default: 0
+            required: true
+            type: "int"
+
+services:
+    traefik:
+        start_on_create: true
+        upgrade_strategy:
+            start_first: true
+        health_check:
+            healthy_threshold: 2
+            response_timeout: 2000
+            port: 8080
+            unhealthy_threshold: 3
+            initializing_timeout: 60000
+            interval: 5000
+            strategy: recreate
+            request_line: GET "/ping" "HTTP/1.0"
+            reinitializing_timeout: 60000
