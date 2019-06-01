@@ -136,6 +136,24 @@ catalog:
             required: true
             type: "int"
 
+        -   variable: "TRAEFIK_HTTP_ADDRESS"
+            label: "HTTP address"
+            default: ":80"
+            required: true
+            type: "string"
+
+        -   variable: "TRAEFIK_HTTPS_ADDRESS"
+            label: "HTTP address"
+            default: ":443"
+            required: true
+            type: "string"
+
+        -   variable: "TRAEFIK_ADMIN_ENTRYPOINT_ADDRESS"
+            label: "HTTP address"
+            default: ":8000"
+            required: true
+            type: "string"
+
 services:
     traefik:
         start_on_create: true
