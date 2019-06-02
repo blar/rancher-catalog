@@ -42,9 +42,10 @@ catalog:
             label: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
             description: "https://wiki.mozilla.org/Security/Server_Side_TLS"
             required: true
-            default: "intermediate"
+            default: "default"
             type: "enum"
             options:
+                - "default"
                 - "modern"
                 - "intermediate"
                 - "old"
