@@ -38,6 +38,16 @@ catalog:
                 - "VersionTLS10"
                 - "VersionSSL30"
 
+        -   variable: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
+            label: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
+            required: true
+            default: "intermediate"
+            type: "enum"
+            options:
+                - "modern"
+                - "intermediate"
+                - "old"
+
         -   variable: "TRAEFIK_API_ENABLE"
             label: "TRAEFIK_API_ENABLE"
             default: false
