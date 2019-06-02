@@ -40,6 +40,7 @@ catalog:
 
         -   variable: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
             label: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
+            description: "https://wiki.mozilla.org/Security/Server_Side_TLS"
             required: true
             default: "intermediate"
             type: "enum"
