@@ -4,9 +4,9 @@ services:
     traefik:
         image: foobox/traefik:1.7.12-amd64
         ports:
-            - "$TRAEFIK_HTTP_ENTRYPOINT_ADDRESS:80"
-            - "$TRAEFIK_HTTPS_ENTRYPOINT_ADDRESS:443"
-            - "$TRAEFIK_ADMIN_ENTRYPOINT_ADDRESS:8000"
+            - "$TRAEFIK_HTTP_PORT:80"
+            - "$TRAEFIK_HTTPS_PORT:443"
+            - "$TRAEFIK_ADMIN_PORT:8000"
         labels:
             io.rancher.scheduler.global: "true"
             io.rancher.scheduler.affinity:host_label: traefik_lb=true
@@ -14,8 +14,8 @@ services:
             io.rancher.container.agent.role: environment
             io.rancher.container.create_agent: "true"
         environment:
-            TRAEFIK_ACME_EMAIL: $TRAEFIK_ACME_EMAIL
             TRAEFIK_ACME_ENABLE: $TRAEFIK_ACME_ENABLE
+            TRAEFIK_ACME_EMAIL: $TRAEFIK_ACME_EMAIL
             TRAEFIK_ACME_KEYTYPE: $TRAEFIK_ACME_KEYTYPE
             TRAEFIK_ADMIN_AUTH_USERS: $TRAEFIK_ADMIN_AUTH_USERS
             TRAEFIK_API_ENABLE: $TRAEFIK_API_ENABLE
@@ -26,6 +26,8 @@ services:
             TRAEFIK_METRICS_ENABLE: $TRAEFIK_METRICS_ENABLE
             TRAEFIK_PING_ENABLE: "true"
             TRAEFIK_TLS_VERSION_MIN: $TRAEFIK_TLS_VERSION_MIN
+            TRAEFIK_RANCHER_ENABLE: "true"
+            TRAEFIK_RANCHER_MODE: $TRAEFIK_RANCHER_MODE
         volumes:
             - $TRAEFIK_ACME_VOLUME:/etc/traefik/acme
 

@@ -6,7 +6,7 @@ catalog:
     description: "Traefik load balancer."
     minimum_rancher_version: v0.59.0
     questions:
-        -   variable: "RANCHER_MODE"
+        -   variable: "TRAEFIK_RANCHER_MODE"
             label: "Choose rancher integration:"
             default: metadata
             required: true
@@ -70,7 +70,7 @@ catalog:
             default: "test@traefik.io"
             type: "string"
 
-        -   variable: "TRAEFIK_ACME_MODE"
+        -   variable: "TRAEFIK_ACME_CHALLENGE"
             description: "ACME challenge."
             label: "ACME challenge:"
             required: true
@@ -154,23 +154,23 @@ catalog:
             required: true
             type: "int"
 
-        -   variable: "TRAEFIK_HTTP_ENTRYPOINT_ADDRESS"
+        -   variable: "TRAEFIK_HTTP_PORT"
             label: "HTTP address"
-            default: ":80"
+            default: "80"
             required: true
-            type: "string"
+            type: "int"
 
-        -   variable: "TRAEFIK_HTTPS_ENTRYPOINT_ADDRESS"
+        -   variable: "TRAEFIK_HTTPS_PORT"
             label: "HTTPS address"
-            default: ":443"
+            default: "443"
             required: true
-            type: "string"
+            type: "int"
 
-        -   variable: "TRAEFIK_ADMIN_ENTRYPOINT_ADDRESS"
-            label: "HTTP address"
-            default: ":8000"
+        -   variable: "TRAEFIK_ADMIN_PORT"
+            label: "Admin address"
+            default: "8000"
             required: true
-            type: "string"
+            type: "int"
 
 services:
     traefik:
