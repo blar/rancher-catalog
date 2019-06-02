@@ -56,6 +56,11 @@ catalog:
             required: true
             type: "boolean"
 
+        -   variable: "TRAEFIK_ADMIN_AUTH_USERS"
+            label: "TRAEFIK_ADMIN_AUTH_USERS"
+            required: false
+            type: "multiline"
+
         -   variable: "TRAEFIK_ACME_ENABLE"
             description: "Enable acme support on traefik."
             label: "ACME enable:"
@@ -115,42 +120,37 @@ catalog:
             type: "boolean"
 
         -   variable: "TRAEFIK_READ_TIMEOUT"
-            label: "Timeout read:"
-            description: |
-                Traefik respondingTimeouts readTimeout (s).
-            default: 0
+            label: "Read timeout"
+            description: "Traefik respondingTimeouts readTimeout (s)."
+            default: 300
             required: true
             type: "int"
 
         -   variable: "TRAEFIK_WRITE_TIMEOUT"
-            label: "Timeout write:"
-            description: |
-                Traefik respondingTimeouts writeTimeout (s).
-            default: 0
+            label: "Write timeout"
+            description: "Traefik respondingTimeouts writeTimeout (s)."
+            default: 300
             required: true
             type: "int"
 
         -   variable: "TRAEFIK_IDLE_TIMEOUT"
-            label: "Timeout idle:"
-            description: |
-                Traefik respondingTimeouts idleTimeout (s).
-            default: 180
+            label: "Idle timeout"
+            description: "Traefik respondingTimeouts idleTimeout (s)."
+            default: 60
             required: true
             type: "int"
 
         -   variable: "TRAEFIK_DIAL_TIMEOUT"
-            label: "Timeout dial:"
-            description: |
-                Traefik forwardingTimeouts dialTimeout (s).
-            default: 30
+            label: "Dial timeout"
+            description: "Traefik forwardingTimeouts dialTimeout (s)."
+            default: 60
             required: true
             type: "int"
 
         -   variable: "TRAEFIK_RESPONSE_HEADER_TIMEOUT"
-            label: "Timeout header:"
-            description: |
-                Traefik forwardingTimeouts responseHeaderTimeout (s).
-            default: 0
+            label: "Response header timeout"
+            description: "Traefik forwardingTimeouts responseHeaderTimeout (s)."
+            default: 60
             required: true
             type: "int"
 
