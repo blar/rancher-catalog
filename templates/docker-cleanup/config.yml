@@ -1,0 +1,5 @@
+name: Docker Cleanup
+description: Remove unused containers and images
+version: v1.0.0
+category: Docker
+maintainer: "Andreas Treichel <gmblar+github@gmail.com>"
