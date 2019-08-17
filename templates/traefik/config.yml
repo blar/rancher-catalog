@@ -1,6 +1,6 @@
 name: Traefik
 description: Traefik active load balancer
-version: v1.7.12-foobox1
+version: v1.7.14-foobox1
 category: Load Balancing
 maintainer: "Andreas Treichel <gmblar+github@gmail.com>"
 license:
