@@ -151,11 +151,6 @@ catalog:
           default: "true"
           type: "boolean"
 
-        - variable: "TRAEFIK_PROVIDERS_RANCHER_DEFAULTRULE"
-          label: "Default rule."
-          default: 'Host(`{{ normalize .Name }}`)'
-          type: "string"
-
         - variable: "TRAEFIK_PROVIDERS_RANCHER_ENABLESERVICEHEALTHFILTER"
           label: "Filter services with unhealthy states and inactive states."
           default: "true"
