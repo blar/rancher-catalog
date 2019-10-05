@@ -74,7 +74,7 @@ catalog:
           default: "false"
           type: "boolean"
 
-        - variable: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_ENTRYPOINT"
+        - variable: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_HTTPCHALLENGE_ENTRYPOINT"
           label: "HTTP challenge EntryPoint."
           type: "enum"
           default: "HTTP"
