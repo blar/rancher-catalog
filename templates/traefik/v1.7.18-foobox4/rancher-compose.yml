@@ -75,7 +75,7 @@ catalog:
 
         -   variable: "TRAEFIK_API_AUTH_USERS"
             label: "TRAEFIK_API_AUTH_USERS"
-            description: "Space separated. Created with htpasswd -n $USER"
+            description: "Comma separated. Created with htpasswd -n $USER"
             required: false
             type: "string"
 
