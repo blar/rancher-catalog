@@ -2,7 +2,7 @@ version: '2'
 
 catalog:
     name: "traefik"
-    version: "v1.7.18-foobox3"
+    version: "v1.7.18-foobox4"
     description: "Traefik load balancer."
     minimum_rancher_version: v0.59.0
     questions:
