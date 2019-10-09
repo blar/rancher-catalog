@@ -75,9 +75,9 @@ catalog:
 
         -   variable: "TRAEFIK_API_AUTH_USERS"
             label: "TRAEFIK_API_AUTH_USERS"
-            description: "One entry per line. Created with htpasswd -n $USER"
+            description: "Space separated. Created with htpasswd -n $USER"
             required: false
-            type: "multiline"
+            type: "string"
 
         -   variable: "TRAEFIK_ACME_ENABLE"
             description: "Enable acme support on traefik."
