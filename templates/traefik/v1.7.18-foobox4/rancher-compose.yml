@@ -207,6 +207,12 @@ catalog:
             required: true
             type: "int"
 
+        -   variable: "TRAEFIK_RANCHER_DOMAIN"
+            label: "TRAEFIK_RANCHER_DOMAIN"
+            default: "rancher.internal"
+            required: false
+            type: "string"
+
 services:
     traefik:
         drain_timeout_ms: 60000
