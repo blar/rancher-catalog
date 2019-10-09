@@ -135,7 +135,7 @@ catalog:
             default: "https://auth.acme-dns.io/"
 
         -   variable: "ACME_DNS_STORAGE_PATH"
-            label: "ACME_DNS_API_BASE:"
+            label: "ACME_DNS_STORAGE_PATH:"
             type: "string"
             default: "/etc/traefik/acme/acme-dns-account.json"
 
