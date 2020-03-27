@@ -112,8 +112,7 @@ catalog:
         -   variable: TRAEFIK_FRONTEND_RULE
             label: Traefik Frontend Rule
             require: false
-            type: boolean
-            default: "false"
+            type: string
 
 services:
     sentry-redis:
