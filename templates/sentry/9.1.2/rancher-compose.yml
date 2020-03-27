@@ -103,6 +103,18 @@ catalog:
             required: false
             type: string
 
+        -   variable: TRAEFIK_ENABLE
+            label: Traefik enable
+            require: false
+            type: boolean
+            default: "false"
+
+        -   variable: TRAEFIK_FRONTEND_RULE
+            label: Traefik Frontend Rule
+            require: false
+            type: boolean
+            default: "false"
+
 services:
     sentry-redis:
         scale: 1
