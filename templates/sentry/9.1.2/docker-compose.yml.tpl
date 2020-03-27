@@ -60,7 +60,7 @@ services:
         links:
             - postgres:postgres
             - redis:redis
-    sentry-worker:
+    worker:
         image: sentry:9.1.2
         environment:
             SENTRY_EMAIL_HOST: ${SENTRY_EMAIL_HOST}
