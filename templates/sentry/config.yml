@@ -1,0 +1,6 @@
+name: Sentry
+description: Sentry is a realtime event logging and aggregation platform
+version: 9.1.2
+category: rancher
+maintainer: Andreas Treichel <gmblar+github@gmail.com>
+
