@@ -115,7 +115,7 @@ catalog:
             type: string
 
 services:
-    sentry-redis:
+    redis:
         scale: 1
         health_check:
             response_timeout: 2000
@@ -126,7 +126,7 @@ services:
             interval: 2000
             strategy: recreate
             reinitializing_timeout: 60000
-    sentry-postgres:
+    postgres:
         scale: 1
         health_check:
             response_timeout: 2000
