@@ -3,7 +3,8 @@ version: '2'
 services:
     hetzner-volume:
         privileged: true
-        image: costela/docker-volume-hetzner:0.1.4
+        image: alpine:3.11
+        command: sleep 3600
         labels:
             io.rancher.scheduler.global: 'true'
             io.rancher.container.create_agent: 'true'
