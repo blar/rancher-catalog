@@ -1,0 +1,5 @@
+hetzner-volume:
+    storage_driver:
+        name: hetzner
+        scope: environment
+        volume_access_mode: singleHostRW

@@ -1,0 +1,4 @@
+name: Hetzner-Volume
+description: Docker volume plugin for Hetzner volumes.
+version: 0.1.4
+category: Storage
