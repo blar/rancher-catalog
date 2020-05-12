@@ -4,8 +4,14 @@ services:
     hetzner-volume:
         privileged: true
         image: foobox/hetzner-volume-rancher
+        environment:
+            RANCHER_DEBUG: 'true'
+        network_mode: host
+        volumes:
+            - /var/run:/var/run
+            - /dev:/host/dev
+            - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
         labels:
-            io.rancher.scheduler.global: 'true'
+            io.rancher.container.agent.role: environment,agent
             io.rancher.container.create_agent: 'true'
-            io.rancher.container.agent.role: environment
-            io.rancher.container.dns: 'true'
+            io.rancher.scheduler.global: 'true'
