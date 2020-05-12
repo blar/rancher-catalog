@@ -5,7 +5,7 @@ services:
         storage_driver:
             description: hetzner driver
             name: hetzner
-            scope: environment
+            scope: local
             volumeAccessMode: singleHostRW
         start_on_create: true
 
