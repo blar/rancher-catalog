@@ -6,6 +6,8 @@ services:
         image: foobox/hetzner-volume-rancher
         environment:
             RANCHER_DEBUG: 'true'
+            HETZNER_API_KEY: $HETZNER_API_KEY
+            HETZNER_VOLUME_PREFIX: $HETZNER_VOLUME_PREFIX
         network_mode: host
         volumes:
             - /var/run:/var/run
