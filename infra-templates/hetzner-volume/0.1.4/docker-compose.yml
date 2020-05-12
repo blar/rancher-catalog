@@ -4,7 +4,6 @@ services:
     hetzner-volume:
         privileged: true
         image: foobox/hetzner-volume-rancher
-        command: sleep 3600
         labels:
             io.rancher.scheduler.global: 'true'
             io.rancher.container.create_agent: 'true'
