@@ -9,3 +9,18 @@ services:
             volumeAccessMode: singleHostRW
         start_on_create: true
 
+catalog:
+    name: hetzner
+    version: 0.1.4
+    minimum_rancher_version: 1.6.7
+    questions:
+        -   variable: RANCHER_API_KEY
+            label: RANCHER_API_KEY
+            require: true
+            type: string
+
+        -   variable: RANCHER_VOLUME_PREFIX
+            label: RANCHER_VOLUME_PREFIX
+            require: true
+            type: string
+            default: rancher
