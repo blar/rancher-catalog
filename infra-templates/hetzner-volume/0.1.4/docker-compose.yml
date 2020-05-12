@@ -3,7 +3,7 @@ version: '2'
 services:
     hetzner-volume:
         privileged: true
-        image: alpine:3.11
+        image: foobox/hetzner-volume-rancher
         command: sleep 3600
         labels:
             io.rancher.scheduler.global: 'true'
