@@ -1,7 +1,7 @@
 version: '2'
 
-hetzner-volume:
-    secrets-driver:
+services:
+    hetzner-volume:
         storage_driver:
             description: hetzner driver
             name: hetzner
