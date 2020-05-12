@@ -1,12 +1,11 @@
 version: '2'
+
 hetzner-volume:
     secrets-driver:
         storage_driver:
             description: hetzner driver
             name: hetzner
-            scope: local
+            scope: environment
             volumeAccessMode: singleHostRW
-            volumeCapabilities:
-                - secrets
         start_on_create: true
 

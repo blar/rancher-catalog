@@ -10,7 +10,7 @@ services:
         volumes:
             - /var/run:/var/run
             - /dev:/host/dev
-            - /var/lib/rancher/volumes:/var/lib/rancher/volumes:shared
+            - /var/lib/rancher:/var/lib/rancher:shared
         labels:
             io.rancher.container.agent.role: environment,agent
             io.rancher.container.create_agent: 'true'
