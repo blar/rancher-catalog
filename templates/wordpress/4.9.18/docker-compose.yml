@@ -59,4 +59,8 @@ services:
 
 volumes:
     wordpress-content:
+        driver_opts:
+            type: hetzner
+            size: 10
+
     mariadb-data:
