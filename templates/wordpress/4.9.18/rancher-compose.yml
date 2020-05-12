@@ -49,6 +49,7 @@ catalog:
           label: "MySQL Username"
           require: true
           type: "string"
+          default: wordpress
 
         - variable: MYSQL_PASSWORD
           label: "MySQL Password"
@@ -59,6 +60,7 @@ catalog:
           label: "MySQL Database"
           require: true
           type: "string"
+          default: wordpress
 
         - variable: MYSQL_ROOT_PASSWORD
           label: "MySQL Root Password"
