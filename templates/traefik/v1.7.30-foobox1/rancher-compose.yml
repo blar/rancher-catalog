@@ -149,7 +149,7 @@ catalog:
         -   variable: "TRAEFIK_COMPRESSION"
             label: "Enable compression:"
             description: |
-                Enable Traefik compression for entrypoints.
+                Enable Traefik recompression for entrypoints if not already compressed.
             default: true
             required: true
             type: "boolean"
