@@ -1,0 +1,231 @@
+version: '2'
+
+catalog:
+    name: "traefik"
+    version: "v1.7.30-foobox1"
+    description: "Traefik load balancer."
+    minimum_rancher_version: v0.59.0
+    questions:
+        -   variable: "TRAEFIK_RANCHER_MODE"
+            label: "Choose rancher integration:"
+            default: metadata
+            required: true
+            type: enum
+            options:
+                - "metadata"
+                - "api"
+
+        -   variable: "RANCHER_HEALTHCHECK"
+            label: "Rancher healthcheck filter:"
+            required: true
+            default: false
+            type: "boolean"
+
+        -   variable: "TRAEFIK_HTTPS_ENABLE"
+            label: "Enable HTTPS:"
+            default: false
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_TLS_VERSION_MIN"
+            label: "Min HTTPS version:"
+            required: true
+            default: "VersionTLS12"
+            type: "enum"
+            options:
+                - "VersionTLS12"
+                - "VersionTLS11"
+                - "VersionTLS10"
+                - "VersionSSL30"
+
+        -   variable: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
+            label: "TRAEFIK_TLS_CIPHER_SUITES_PROFILE"
+            description: "https://wiki.mozilla.org/Security/Server_Side_TLS"
+            required: true
+            default: "default"
+            type: "enum"
+            options:
+                - "default"
+                - "modern"
+                - "intermediate"
+                - "old"
+
+        -   variable: "TRAEFIK_API_ENABLE"
+            label: "TRAEFIK_API_ENABLE"
+            default: false
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_API_RULE"
+            label: "TRAEFIK_API_RULE"
+            required: false
+            type: "string"
+
+        -   variable: "TRAEFIK_DASHBOARD_ENABLE"
+            label: "TRAEFIK_DASHBOARD_ENABLE"
+            default: false
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_API_STATISTICS"
+            label: "TRAEFIK_API_STATISTICS"
+            default: false
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_API_AUTH_USERS"
+            label: "TRAEFIK_API_AUTH_USERS"
+            description: "Comma separated. Created with htpasswd -n $USER"
+            required: false
+            type: "string"
+
+        -   variable: "TRAEFIK_ACME_ENABLE"
+            description: "Enable acme support on traefik."
+            label: "ACME enable:"
+            required: true
+            default: false
+            type: "boolean"
+
+        -   variable: "TRAEFIK_ACME_CA_SERVER"
+            description: "ACME caServer to use."
+            label: "ACME caServer:"
+            required: true
+            default: "https://acme-v02.api.letsencrypt.org/directory"
+            type: "string"
+
+        -   variable: "TRAEFIK_ACME_KEYTYPE"
+            description: "ACME key type to use."
+            label: "ACME key type:"
+            required: true
+            default: "RSA4096"
+            type: "enum"
+            options:
+                - "EC384"
+                - "EC256"
+                - "RSA8192"
+                - "RSA4096"
+                - "RSA2048"
+
+        -   variable: "TRAEFIK_ACME_EMAIL"
+            description: "ACME user email."
+            label: "ACME email:"
+            required: true
+            default: "test@traefik.io"
+            type: "string"
+
+        -   variable: "TRAEFIK_ACME_CHALLENGE"
+            description: "ACME challenge."
+            label: "ACME challenge:"
+            required: true
+            default: "http"
+            type: enum
+            options:
+                - "http"
+                - "dns"
+
+        -   variable: "TRAEFIK_ACME_DNS_PROVIDER"
+            label: "TRAEFIK_ACME_DNS_PROVIDER"
+            default: "acme-dns"
+            type: enum
+            options:
+                - "acme-dns"
+
+        -   variable: "ACME_DNS_API_BASE"
+            label: "ACME_DNS_API_BASE:"
+            type: "string"
+            default: "https://auth.acme-dns.io/"
+
+        -   variable: "ACME_DNS_STORAGE_PATH"
+            label: "ACME_DNS_STORAGE_PATH:"
+            type: "string"
+            default: "/etc/traefik/acme/acme-dns-account.json"
+
+        -   variable: "TRAEFIK_ACME_VOLUME"
+            label: "ACME volume name"
+            required: true
+            default: "traefik-acme"
+            type: "string"
+
+        -   variable: "TRAEFIK_COMPRESSION"
+            label: "Enable compression:"
+            description: |
+                Enable Traefik compression for entrypoints.
+            default: true
+            required: true
+            type: "boolean"
+
+        -   variable: "TRAEFIK_READ_TIMEOUT"
+            label: "Read timeout"
+            description: "Traefik respondingTimeouts readTimeout (s)."
+            default: 300
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_WRITE_TIMEOUT"
+            label: "Write timeout"
+            description: "Traefik respondingTimeouts writeTimeout (s)."
+            default: 300
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_IDLE_TIMEOUT"
+            label: "Idle timeout"
+            description: "Traefik respondingTimeouts idleTimeout (s)."
+            default: 60
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_DIAL_TIMEOUT"
+            label: "Dial timeout"
+            description: "Traefik forwardingTimeouts dialTimeout (s)."
+            default: 60
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_RESPONSE_HEADER_TIMEOUT"
+            label: "Response header timeout"
+            description: "Traefik forwardingTimeouts responseHeaderTimeout (s)."
+            default: 60
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_HTTP_PORT"
+            label: "HTTP address"
+            default: "80"
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_HTTPS_PORT"
+            label: "HTTPS address"
+            default: "443"
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_ADMIN_PORT"
+            label: "Admin address"
+            default: "8000"
+            required: true
+            type: "int"
+
+        -   variable: "TRAEFIK_RANCHER_DOMAIN"
+            label: "TRAEFIK_RANCHER_DOMAIN"
+            default: "rancher.internal"
+            required: false
+            type: "string"
+
+services:
+    traefik:
+        drain_timeout_ms: 60000
+        start_on_create: true
+        upgrade_strategy:
+            start_first: true
+        health_check:
+            healthy_threshold: 2
+            response_timeout: 2000
+            port: 8000
+            unhealthy_threshold: 3
+            initializing_timeout: 60000
+            interval: 5000
+            strategy: recreate
+            request_line: GET "/ping" "HTTP/1.0"
+            reinitializing_timeout: 60000
