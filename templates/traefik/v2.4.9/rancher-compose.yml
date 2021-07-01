@@ -52,7 +52,8 @@ catalog:
 
 services:
     traefik:
-        scale: 1
+        upgrade_strategy:
+            start_first: true
         start_on_create: true
         health_check:
             port: "8080"
