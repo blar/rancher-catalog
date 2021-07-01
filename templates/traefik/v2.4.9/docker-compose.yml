@@ -8,6 +8,9 @@ services:
             - 443:443/tcp
         volumes:
             - traefik-acme:/etc/traefik/acme
+        labels:
+            io.rancher.scheduler.global: "true"
+            io.rancher.scheduler.affinity:host_label: traefik_lb=true
         environment:
             TRAEFIK_GLOBAL_CHECKNEWVERSION: "false"
             TRAEFIK_GLOBAL_SENDANONYMOUSUSAGE: "false"
