@@ -27,7 +27,7 @@ catalog:
           type: "boolean"
           default: "false"
 
-        - variables: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL"
+        - variable: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL"
           label: "E-Mail for letsencrypt"
           type: "string"
 
