@@ -16,7 +16,7 @@ catalog:
           type: "boolean"
 
         - variable: "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_TLS_CERTRESOLVER"
-          label: "Certificate resolver for http"
+          label: "Certificate resolver"
           type: enum
           default: letsencrypt
           options:
