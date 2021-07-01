@@ -53,7 +53,7 @@ catalog:
 services:
     traefik:
         scale: 1
-        start_on_create: "true"
+        start_on_create: true
         health_check:
             port: "8080"
             request_line: GET "/ping" "HTTP/1.0"
