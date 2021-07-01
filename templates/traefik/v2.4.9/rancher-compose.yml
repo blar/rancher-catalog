@@ -1,0 +1,65 @@
+version: "2"
+
+catalog:
+    name: traefik
+    description: Traefik load balancer.
+    version: v2.4.9
+    questions:
+        - variable: "TRAEFIK_ACCESSLOG"
+          label: "Enable access-log"
+          type: "boolean"
+          default: "false"
+
+        - variable: "TRAEFIK_ENTRYPOINTS_HTTPS"
+          label: "Enable HTTPS"
+          type: "boolean"
+
+        - variable: "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_TLS_CERTRESOLVER"
+          label: "Certificate resolver for http"
+          type: enum
+          default: letsencrypt
+          options:
+              - letsencrypt
+
+        - variable: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT"
+          label: "Enable letsencrypt"
+          type: "boolean"
+          default: "false"
+
+        - variables: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_EMAIL"
+          label: "E-Mail for letsencrypt"
+          type: "string"
+
+        - variable: "TRAEFIK_CERTIFICATESRESOLVERS_LETSENCRYPT_ACME_KEYTYPE"
+          label: "Key type for letsenctypt"
+          type: enum
+          default: RSA2048
+          options:
+              - RSA8192
+              - RSA4096
+              - RSA2048
+              - EC384
+              - EC256
+
+        - variable: "TRAEFIK_ENTRYPOINTS_HTTP_HTTP_MIDDLEWARES"
+          label: "Default middlewares for http"
+          type: "string"
+
+        - variable: "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_MIDDLEWARES"
+          label: "Default middlewares for https"
+          type: "string"
+
+services:
+    traefik:
+        scale: 1
+        start_on_create: "true"
+        health_check:
+            port: "8080"
+            request_line: GET "/ping" "HTTP/1.0"
+            strategy: "recreate"
+            interval: "10000"
+            response_timeout: "10000"
+            healthy_threshold: "2"
+            unhealthy_threshold: "3"
+            initializing_timeout: "10000"
+            reinitializing_timeout: "10000"
