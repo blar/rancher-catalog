@@ -50,6 +50,20 @@ catalog:
           label: "Default middlewares for https"
           type: "string"
 
+        - variable: "TRAEFIK_PROVIDERS_HTTP"
+          label: "Enable http config provider"
+          type: "boolean"
+          default: "false"
+
+        - variable: "TRAEFIK_PROVIDERS_HTTP_ENDPOINT"
+          label: "Url for the http config provider"
+          type: "string"
+
+        - variable: "TRAEFIK_PROVIDERS_HTTP_POLLINTERVAL"
+          label: "Poll interval for the http config provider"
+          type: "int"
+          default: "10"
+
 services:
     traefik:
         upgrade_strategy:
