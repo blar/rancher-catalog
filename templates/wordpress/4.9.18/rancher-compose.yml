@@ -50,22 +50,26 @@ catalog:
           require: true
           type: "string"
           default: wordpress
+          group: database
 
         - variable: MYSQL_PASSWORD
           label: "MySQL Password"
           require: true
           type: "password"
+          group: database
 
         - variable: MYSQL_DATABASE
           label: "MySQL Database"
           require: true
           type: "string"
           default: wordpress
+          group: database
 
         - variable: MYSQL_ROOT_PASSWORD
           label: "MySQL Root Password"
           require: true
           type: "password"
+          group: database
 
         - variable: WORDPRESS_FILE_MODS_ENABLE
           label: "Enable Plugin and Theme installation and update"
@@ -96,9 +100,11 @@ catalog:
           require: false
           default: false
           type: "boolean"
+          group: traefik
 
         - variable: TRAEFIK_HOST
           label: "Traefik host"
           require: false
           type: "string"
           description: "Host:example.com"
+          group: traefik
