@@ -76,24 +76,28 @@ catalog:
           require: true
           default: false
           type: "boolean"
+          group: wordpress
 
         - variable: WORDPRESS_FILE_EDIT_ENABLE
           label: "Enable Plugin and Theme Editor"
           require: true
           default: false
           type: "boolean"
+          group: wordpress
 
         - variable: WORDPRESS_CRON_ENABLE
           label: "Enable Cron in the web container"
           require: true
           default: false
           type: "boolean"
+          group: wordpress
 
         - variable: WORDPRESS_CACHE
           label: "Enable Cache"
           require: true
           default: false
           type: "boolean"
+          group: wordpress
 
         - variable: TRAEFIK_ENABLE
           label: "Enable Traefik"
